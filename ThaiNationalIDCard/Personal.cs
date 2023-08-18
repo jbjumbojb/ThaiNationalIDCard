@@ -106,16 +106,20 @@ namespace ThaiNationalIDCard
         {
             get
             {
-                var year = Convert.ToInt32(_personal.Substring(200, 4));
-                var month = Convert.ToInt32(_personal.Substring(204, 2));
-                var day = Convert.ToInt32(_personal.Substring(206, 2));
-
-                return new[] { year, month, day }.All(v => v > 0)
-                    ? new DateTime(year - 543, month, day)
-                    : null;
+                if (
+                    int.TryParse(_personal.Substring(200, 4), out int year)
+                    && int.TryParse(_personal.Substring(204, 2), out int month)
+                    && int.TryParse(_personal.Substring(206, 2), out int day)
+                )
+                {
+                    return new DateTime(year - 543, month, day);
+                }
+                return null;
             }
         }
-
+        public int? BirthdayYear => int.TryParse(_personal.Substring(200, 4), out int year) ? year - 543 : null;
+        public int? BirthdayMonth => int.TryParse(_personal.Substring(204, 2), out int month) ? month : null;
+        public int? BirthdayDay => int.TryParse(_personal.Substring(206, 2), out int day) ? day : null;
         public string BirthdayYearString => (Convert.ToInt32(_personal.Substring(200, 4)) - 543).ToString();
 
         public string Sex => _personal.Substring(208, 1);
