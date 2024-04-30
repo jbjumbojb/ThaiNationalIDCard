@@ -84,8 +84,14 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="PCSC, Version=6.1.3.0, Culture=neutral, PublicKeyToken=13b76e54a2ee80a7, processorArchitecture=MSIL" />
-    <Reference Include="PCSC.Iso7816, Version=6.1.3.0, Culture=neutral, PublicKeyToken=13b76e54a2ee80a7, processorArchitecture=MSIL" />
+    <Reference Include="PCSC, Version=6.1.3.0, Culture=neutral, PublicKeyToken=13b76e54a2ee80a7, processorArchitecture=MSIL">
+      <HintPath>..\..\ipacs\iPAC\packages\PCSC.6.1.3\lib\netstandard2.0\PCSC.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PCSC.Iso7816, Version=6.1.3.0, Culture=neutral, PublicKeyToken=13b76e54a2ee80a7, processorArchitecture=MSIL">
+      <HintPath>..\..\ipacs\iPAC\packages\PCSC.Iso7816.6.1.3\lib\netstandard2.0\PCSC.Iso7816.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
